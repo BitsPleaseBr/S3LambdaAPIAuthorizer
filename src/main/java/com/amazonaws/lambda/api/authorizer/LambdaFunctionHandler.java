@@ -52,6 +52,8 @@ public class LambdaFunctionHandler implements RequestHandler<TokenAuthorizerCont
       autorizado = false;
     }
 
+    context.getLogger().log("Autorizado: " + autorizado);
+    
     // Retorna a política
     ArnParser arnParser = new ArnParser(input.getMethodArn());
     PolicyGenerator policyGenerator = new PolicyGenerator(arnParser, principalId);
